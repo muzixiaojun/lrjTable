@@ -6,7 +6,7 @@
     tr绑定事件 onRowClick
     valueCallback tr返回值
 
-    columns 数组 {
+    columns 对象 {
       key: '',
       title: '',
       width: 200,
@@ -45,16 +45,6 @@ Component({
     width: {
       type: Number || String,
       value: 750
-    },
-    // 单元格的宽度
-    tdWidth: {
-      type: Number,
-      value: 35
-    },
-    // 固定表头 thead达到Header的位置时就应该被fixed了
-    offsetTop: {
-      type: Number,
-      value: 150
     },
     // 是否带有纵向边框
     isBorder: {

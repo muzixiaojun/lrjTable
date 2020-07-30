@@ -1,7 +1,6 @@
 {
   "pages":[
-    "index/index",
-    "components/lrjTable/lrjTable"
+    "index/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
