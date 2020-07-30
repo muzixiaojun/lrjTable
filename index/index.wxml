@@ -1,0 +1,3 @@
+<view>
+  <l-table columns="{{columns}}" data="{{data}}" bindrowClick='onRowClick'></l-table>
+</view>

@@ -1,0 +1,23 @@
+<scroll-view scroll-x="true" enable-flex="true" class="table" style="width: 100%;padding-top: {{marginTopValue}}px">
+	<view class="thead {{isBorder ? 'thead-border' : ''}} thead-row-class" style="width: {{width}}rpx; position: {{isFixed ? 'fixed' : 'static'}}">
+		<view class="td" wx:for="{{columns}}" wx:key="index" style="width: {{item['width'] ? item['width'] : 200}}px; text-align: {{item.align ? item.align : 'center'}};">
+			{{item.title}}
+		</view>
+	</view>
+	<scroll-view scroll-y="true" class="tbody" style="width: {{width}}rpx; height: {{height ? height + 'px': 'auto'}};">
+		<block wx:for="{{data}}" wx:key="index" wx:if="{{data.length > 0}}">
+			<view class="tbody-tr {{ isStripe ? 'tbody-tr-stripe' : '' }} {{ isBorder ? 'tbody-tr-border' : ''}} tbody-tow-class">
+				<view wx:for-item="thead" wx:for-index="theadIndex" wx:for="{{columns}}" class="td td-class" style="width: {{columns[theadIndex].width}}px; text-align:{{columns[theadIndex].align ? columns[theadIndex].align : 'center'}}" data-value="{{valueCallback ? item[valueCallback]: item}}" bindtap="onRowClick">
+					{{item[thead['key']]}}
+					<button wx:if="{{thead.slot}}" class='btn' plain="true" size='mini' data-value="{{item.valueCallback ? item[valueCallback]: item}}" bindtap="onBtnClick">{{thead.btnName}}</button>
+				</view>
+			</view>
+		</block>
+		<block wx:if="{{data.length == 0}}">
+			<view class="no-data">
+				{{msg}}
+			</view>
+		</block>
+	</scroll-view>
+</scroll-view>
+<slot></slot>
